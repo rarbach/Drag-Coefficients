@@ -17,3 +17,11 @@ void_s=C_VOF(cell,thread_s);  void_g=1-void_s;
 
 ratio=1.18410771;
 
+c=0.82243;
+
+if(Re==0.0) cd=0;
+else cd=24/Re*ratio*(1+0.15*pow(c,-0.5)*pow(ratio*Re,0.687))+(0.42*pow(ratio,2))/((pow(c,0.5))*(1+42500*pow(ratio*Re,-1.16))) ;
+D=18*cd*void_g;
+
+return (D);
+}
