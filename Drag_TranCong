@@ -1,0 +1,19 @@
+#include "udf.h"
+#include "dpm.h"
+
+DEFINE_DPM_DRAG(TranCong,Re,tp)
+
+{real D, void_s,void_g,cd,ratio;
+
+cell_t cell; Thread *thread_s, *mix_thread;
+
+cell=P_CELL(tp);
+
+mix_thread=P_CELL_THREAD(tp);
+
+thread_s=THREAD_SUB_THREAD(mix_thread,1);
+
+void_s=C_VOF(cell,thread_s);  void_g=1-void_s;
+
+ratio=1.18410771;
+
